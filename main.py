@@ -1,0 +1,12 @@
+from fastapi import FastAPI
+
+from service.global_results_service import GlobalResultsService
+from sql_alchemy_repository.global_results_repository_sql_alchemy import GlobalResultsSQLAlchemy
+
+app = FastAPI()
+
+
+@app.get("/global_results")
+async def global_results():
+    service = GlobalResultsService(GlobalResultsSQLAlchemy())
+    return service.get()
