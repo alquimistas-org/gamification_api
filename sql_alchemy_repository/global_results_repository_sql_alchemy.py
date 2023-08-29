@@ -2,6 +2,7 @@ class GlobalResultsSQLAlchemy:
     """
     This is a mock. Here we should make a query
     """
+
     def get(self):
         return {
             "data": {
