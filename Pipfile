@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 fastapi = "~= 0.101"
 uvicorn = {extras = ["standard"], version = "~= 0.23"}
+sqlalchemy = "~=2.0"
 
 [dev-packages]
 pytest = "*"
