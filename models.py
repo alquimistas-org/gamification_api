@@ -5,7 +5,7 @@ from sqlalchemy import Enum as SqlAlchemyEnum
 from sqlalchemy import ForeignKey, Table
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
-from utils import Status
+from utils import Status, UserRole
 
 
 class Base(DeclarativeBase):
@@ -20,9 +20,7 @@ class User(Base):
     last_name: Mapped[str]
     email: Mapped[str] = mapped_column(unique=True)
     active: Mapped[bool] = mapped_column(default=False)
-
-
-# TODO: create admin user
+    role: Mapped[str] = mapped_column(SqlAlchemyEnum(UserRole), default=UserRole.USER)
 
 
 class Metric(Base):
